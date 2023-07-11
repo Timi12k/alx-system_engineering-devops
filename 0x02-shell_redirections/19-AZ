@@ -1,2 +1,2 @@
 #!/bin/bash
-:%s/A/Z/g | %s/c/e/g | wq
+tr Ac Ze
