@@ -1,2 +1,2 @@
 #!/bin/bash
-printf "%s\n" "$(printf "%0s\n" "$(( $(echo $WATER | tr water 01234) + $(echo $STIR | tr stir. 01234) ))" | tr 01234567 bestchol | rev)"
+printf "%s\n" $(echo $WATER | tr water 01234 | awk -v stir="$(echo $STIR | tr stir. 01234)" '{ sum = $0 + stir; while (sum > 0) { digit = sum % 8; sum = int(sum / 8); if (digit == 0) printf "%s", "b"; else if (digit == 1) printf "%s", "e"; else if (digit == 2) printf "%s", "s"; else if (digit == 3) printf "%s", "t"; else if (digit == 4) printf "%s", "c"; else if (digit == 5) printf "%s", "h"; else if (digit == 6) printf "%s", "o"; else if (digit == 7) printf "%s", "l"; } }' | rev)
