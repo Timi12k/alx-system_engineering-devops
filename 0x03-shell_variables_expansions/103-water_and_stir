@@ -1,2 +1,2 @@
 #!/bin/bash
-printf "%s\n" "$(WATER=$(echo $WATER | tr water 01234); STIR=$(echo $STIR | tr stir. 01234); result=$((WATER + STIR)); base_bestchol=""; while [[ $result -gt 0 ]]; do digit=$((result % 8)); case $digit in 0) base_bestchol+="b" ;; 1) base_bestchol+="e" ;; 2) base_bestchol+="s" ;; 3) base_bestchol+="t" ;; 4) base_bestchol+="c" ;; 5) base_bestchol+="h" ;; 6) base_bestchol+="o" ;; 7) base_bestchol+="l" ;; esac; result=$((result / 8)); done; reversed=""; for ((i = ${#base_bestchol} - 1; i >= 0; i--)); do reversed+=${base_bestchol:$i:1}; done; echo "$reversed")"
+printf  "%o\n"  $((  $((5#$(echo $WATER  |  tr  water 01234))) + $((5#$(echo $STIR  |   tr  stir.  01234)))  ))  |  tr  01234567  bestchol
