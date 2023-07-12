@@ -1,2 +1,2 @@
 #!/bin/bash
-result=$(($(echo $WATER | tr water 01234) + 5#$(echo $STIR | tr stir. 01234))); base_bestchol=""; while [[ $result -gt 0 ]]; do digit=$((result % 8)); if [[ $digit -eq 0 ]]; then base_bestchol+="b"; elif [[ $digit -eq 1 ]]; then base_bestchol+="e"; elif [[ $digit -eq 2 ]]; then base_bestchol+="s"; elif [[ $digit -eq 3 ]]; then base_bestchol+="t"; elif [[ $digit -eq 4 ]]; then base_bestchol+="c"; elif [[ $digit -eq 5 ]]; then base_bestchol+="h"; elif [[ $digit -eq 6 ]]; then base_bestchol+="o"; elif [[ $digit -eq 7 ]]; then base_bestchol+="l"; fi; result=$((result / 8)); done; echo "$base_bestchol" | rev
+printf "%s\n" "$(printf "%0s\n" "$(( $(echo $WATER | tr water 01234) + $(echo $STIR | tr stir. 01234) ))" | tr 01234567 bestchol | rev)"
