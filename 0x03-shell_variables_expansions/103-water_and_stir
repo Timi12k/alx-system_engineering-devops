@@ -1,3 +1,2 @@
 #!/bin/bash
-result=$(( $(echo "$WATER" | tr 'water' '01234') + 5#$(echo "$STIR" | tr 'stir.' '01234') ))
 printf "%s\n" $(echo "obase=bestchol; $result" | bc | tr '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ' 'bestchol')
